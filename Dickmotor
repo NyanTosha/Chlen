@@ -1,0 +1,31 @@
+#include <Servo.h>
+Servo motorpidor;
+
+int analogPin = 2;
+int assVal = 0;
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  Serial.println("fag!");
+  motorpidor.attach(10);
+  delay(5);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  //  Serial.println("fuuuuuuu");
+  //  delay(300);
+  //  Serial.println("nyan");
+//  motorpidor.write(0);
+  assVal = analogRead(analogPin);
+  Serial.print("ASS =");
+  Serial.println(assVal);
+  int chlen = map(assVal, 0, 400, 0, 180);
+  Serial.print("HUI =");
+  Serial.println(chlen);
+  //  //  delay(500);
+//  delay(200);
+  motorpidor.write(chlen);
+  delay(200);
+}
